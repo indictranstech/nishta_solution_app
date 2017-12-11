@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include nishta_sol *.css
+recursive-include nishta_sol *.csv
+recursive-include nishta_sol *.html
+recursive-include nishta_sol *.ico
+recursive-include nishta_sol *.js
+recursive-include nishta_sol *.json
+recursive-include nishta_sol *.md
+recursive-include nishta_sol *.png
+recursive-include nishta_sol *.py
+recursive-include nishta_sol *.svg
+recursive-include nishta_sol *.txt
+recursive-exclude nishta_sol *.pyc
