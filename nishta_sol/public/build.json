@@ -1,0 +1,5 @@
+{
+	"js/nishta_sol.min.js": [
+		"public/js/point_of_sale.js"
+	]
+}
