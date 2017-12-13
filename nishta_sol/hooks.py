@@ -120,3 +120,5 @@ page_js = {"point-of-sale" : "public/js/point_of_sale.js"}
 # 	"frappe.desk.doctype.event.event.get_events": "nishta_sol.event.get_events"
 # }
 
+fixtures = ["Custom Field","Property Setter","Report","Custom Script","Role"]
+

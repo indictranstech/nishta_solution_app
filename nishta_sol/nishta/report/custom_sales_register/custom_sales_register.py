@@ -243,6 +243,14 @@ def get_mode_of_payments(invoice_list):
 
 @frappe.whitelist()
 def get_user(doctype, txt, searchfield, start, page_len, filters):
-	return "Radhika"	
+	user_name = frappe.session.user
+	company_name= frappe.db.sql("""select company from `tabUser` where name ='{0}'""".format(str(frappe.session.user)),as_list=1)
+	return company_name
 
+
+@frappe.whitelist()
+def get_user_company():
+	user_name = frappe.session.user
+	company_name= frappe.db.sql("""select company from `tabUser` where name ='{0}'""".format(str(frappe.session.user)),as_list=1)
+	return company_name
 

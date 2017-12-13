@@ -30,22 +30,21 @@ frappe.query_reports["Custom Sales Register"] = {
 		// 	"options": "Company",
 		// 	"default": frappe.defaults.get_user_default("Company")
 		// },
-		// {
-		// 	"fieldname":"company",
-		// 	"label": __("Company"),
-		// 	"fieldtype": "Link",
-		// 	"options": "Company",
-		// 	"get_query": function () {
-		// 		console.log("\n\n dfsdf")
-		// 		args = frappe.session.user
-		// 	return {
-		// 		console.log("\n\n dfsdf")
-		// 		query:"nishta_sol.nishta_sol.nishta.report.custom_sales_register.custom_sales_register.get_user"
-		// 		filters: {}
-		// 	}
+		{
+			"fieldname":"company",
+			"label": __("Company"),
+			"fieldtype": "Link",
+			"options": "Company",
+			"get_query": function () {
+				args = frappe.session.user
+				return {
+					query:"nishta_sol.nishta.report.custom_sales_register.custom_sales_register.get_user"
+				}
 
-			
-		// },
+			}
+		},
+
+
 
 		{
 			"fieldname":"mode_of_payment",
@@ -53,5 +52,16 @@ frappe.query_reports["Custom Sales Register"] = {
 			"fieldtype": "Link",
 			"options": "Mode of Payment"
 		}
-	]
+	],
+	onload: (report) => {
+		frappe.call({
+				method: "nishta_sol.nishta.report.custom_sales_register.custom_sales_register.get_user_company",
+				callback: function(r) {
+					if(r.message) {
+						$("[data-fieldname=company]").val(r.message[0][0]);
+					}
+				}
+			});
+	},
+
 }
