@@ -79,13 +79,12 @@ page_js = {"point-of-sale" : "public/js/point_of_sale.js"}
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-#	}
-# }
+doc_events = {
+	"Sales Order": {
+	"after_insert": "nishta_sol.nishta.custom_so.sales_order.make_sales_invoice",
+		"validate": "nishta_sol.nishta.custom_so.sales_order.update_sales_invoice"
+	}
+}
 
 # Scheduled Tasks
 # ---------------
